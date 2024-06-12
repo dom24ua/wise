@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html  >
 <head>
+<link rel="manifest" href="/wise/manifest.json">
 
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -146,6 +147,17 @@ Winter Garden Care
     </div>
 </section>
 
+<script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('/wise/service-worker.js').then((registration) => {
+        console.log('ServiceWorker registration successful with scope: ', registration.scope);
+      }, (error) => {
+        console.log('ServiceWorker registration failed: ', error);
+      });
+    });
+  }
+</script>
 
   
   
